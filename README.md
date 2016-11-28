@@ -1,10 +1,11 @@
 # 一、环境
 1.jdk1.6.0_31及以上 <br />
-2.依赖：
-          commons-httpclient-3.0.1<br />
-	  commons-logging-1.0.3<br />
-	  commons-codec-1.2<br />
-	  fastjson-1.2.5<br />
+2.依赖：<br />
+　　　　　commons-httpclient-3.0.1<br />
+　　　　　commons-logging-1.0.3<br />
+　　　　　commons-codec-1.2<br />
+　　　　　fastjson-1.2.5<br />
+3.import com.youziku.sdk.*;
 # 二、介绍
 
 SDK适用于在java语言中调用service.youziku.com中的所有api

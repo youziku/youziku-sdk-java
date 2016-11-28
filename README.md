@@ -11,7 +11,7 @@
 SDK适用于在java语言中调用service.youziku.com中的所有api
 
 # 三、引用
-## 1.import com.youziku.sdk.*;
+1.import com.youziku.sdk.*;
 
 # 四、Sample
 ## 1.初始化YouzikuServiceClient实例,在全局配置一遍即可

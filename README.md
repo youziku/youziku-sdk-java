@@ -12,7 +12,7 @@ SDK适用于在java语言中调用service.youziku.com中的所有api
 # 三、Sample
 ## 1.初始化YouzikuServiceClient实例,在全局配置一遍即可
 ```java 
-public static  IYouzikuServiceClient youzikuClent = new YouzikuServiceClient("xxxxxx");//xxxxxx为用户的apikey
+public static Final IYouzikuServiceClient youzikuClent = new YouzikuServiceClient("xxxxxx");//xxxxxx为用户的apikey
 ```
 ## 2.单标签模式
 ### 2.1 getFontface()

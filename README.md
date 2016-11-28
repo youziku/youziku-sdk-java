@@ -1,16 +1,19 @@
 # 一、环境
 1.jdk1.6.0_31及以上 <br />
 2.依赖：<br />
-　　　　　commons-httpclient-3.0.1<br />
-　　　　　commons-logging-1.0.3<br />
-　　　　　commons-codec-1.2<br />
-　　　　　fastjson-1.2.5<br />
-3.import com.youziku.sdk.*;
+　　　commons-httpclient-3.0.1<br />
+　　　commons-logging-1.0.3<br />
+　　　commons-codec-1.2<br />
+　　　fastjson-1.2.5<br />
+
 # 二、介绍
 
 SDK适用于在java语言中调用service.youziku.com中的所有api
 
-# 三、Sample
+# 三、引用
+## 1.import com.youziku.sdk.*;
+
+# 四、Sample
 ## 1.初始化YouzikuServiceClient实例,在全局配置一遍即可
 ```java 
 public static Final IYouzikuServiceClient youzikuClent = new YouzikuServiceClient("xxxxxx");//xxxxxx为用户的apikey

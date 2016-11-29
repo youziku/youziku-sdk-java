@@ -1,12 +1,4 @@
-# 一、环境
-1.jdk1.6.0_31及以上 <br />
-2.依赖：<br />
-　　　commons-httpclient-3.0.1<br />
-　　　commons-logging-1.0.3<br />
-　　　commons-codec-1.2<br />
-　　　fastjson-1.2.5<br />
-
-# 二、介绍
+# 一、介绍
 ## 1．SDK适用语言<br/>
 SDK适用于在Java中调用<a href="http://service.youziku.com">service.youziku.com</a>中的所有api<br/>
 
@@ -23,6 +15,14 @@ SDK的返回值主要内容是@font-face语句，@font-face语句是CSS3中的�
 ## 4. 显示字体效果
 用户可以将@font-face语句与内容相对应保存至数据库，以便在内容被加载时，该语句能跟随内容一起加载到前端页面，从而使内容显示字体效果；<br/>
 用户也可以不保存@font-face语句：有字库允许用户自定义字体存放路径，当需要显示字体效果时，可以根据自己所定义的路径拼出@font-face语句，然后将语句输出到前端页面，即可使内容显示字体效果。
+
+# 二、环境
+1.jdk1.6.0_31及以上 <br />
+2.依赖：<br />
+　　　commons-httpclient-3.0.1<br />
+　　　commons-logging-1.0.3<br />
+　　　commons-codec-1.2<br />
+　　　fastjson-1.2.5<br />
 
 # 三、引用
 1.import com.youziku.sdk.*;

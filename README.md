@@ -16,7 +16,7 @@ SDK适用于在java语言中调用service.youziku.com中的所有api
 # 四、Sample
 ## 1.初始化YouzikuServiceClient实例,在全局配置一遍即可
 ```java 
-public static Final IYouzikuServiceClient youzikuClent = new YouzikuServiceClient("xxxxxx");//xxxxxx为用户的apikey
+public static final IYouzikuServiceClient youzikuClent = new YouzikuServiceClient("xxxxxx");//xxxxxx为用户的apikey
 ```
 ## 2.单标签模式
 ### 2.1 getFontface()
@@ -113,4 +113,22 @@ bcpwff2.addData(new CustomPathFontFaceParam("xxx", "有字库，让中文跃上�
 bcpwff2.addData(new CustomPathFontFaceParam("xxx", "有字库，让前端掌控字体！", "youziku/test-2"));
 //调用接口
 BatchCustomPathWoffFontFaceResult result = youzikuClent.getCustomPathBatchWoffWebFont(bcpwff2);
+```
+同步调用
+``` java
+//构建一个请求参数
+BatchCustomPathWoffFontFaceParam bcpwff2 = new BatchCustomPathWoffFontFaceParam();
+bcpwff2.addData(new CustomPathFontFaceParam("xxx", "有字库，让中文跃上云端！", "youziku/test-1"));
+bcpwff2.addData(new CustomPathFontFaceParam("xxx", "有字库，让前端掌控字体！", "youziku/test-2"));
+//调用接口
+youzikuClent.getCustomPathBatchWoffWebFontAsync(bcpwff2,new FontFaceCallBack<BatchCustomPathWoffFontFaceResult>() {
+	public void callBack(BatchCustomPathWoffFontFaceResult t) {
+		if("200".equals(t.getCode())){
+			System.out.println("生成成功");
+		}else{
+			System.out.println("生成失败");
+		}
+	}
+});
+
 ```

@@ -17,7 +17,6 @@ import com.youziku.sdk.result.ResponseItemResult;
 public class AppTest {
 	
 	private static IYouzikuServiceClient youzikuClent = new YouzikuServiceClient("89cea6396460ef6e9c3a4f15f064e799", "http://service.youziku.com");
-	public static final IYouzikuServiceClient youzikuClient = new YouzikuServiceClient("xxxxxx",new com.youziku.sdk.core.HttpClientHandler(),new com.youziku.sdk.core.FastJsonHandler());
 	
 	public static void main(String[] args) {
 		sync();
@@ -29,8 +28,7 @@ public class AppTest {
 	 */
 	public static void sync(){
 		//单标签字体
-		FontFaceResult fontFaceResult = youzikuClent.getFontFace(new FontFaceParam("f7f070be5ed0432ebeb2d39118f8aca4", "有字库，&让中文跃上云端！", "#id1"));
-		System.out.println(JSON.toJSON(fontFaceResult));
+		youzikuClent.getFontFace(new FontFaceParam("f7f070be5ed0432ebeb2d39118f8aca4", "有字库，让中文跃上云端！", "#id1"));
 		//直接返回流（woff流）的@fontface
 		youzikuClent.getWoffBase64StringFontFace(new FontFaceParam("f7f070be5ed0432ebeb2d39118f8aca4", "有字库，让中文跃上云端！", "#id1"));
 		//多标签生成模式,可传递多个标签和内容一次生成多个@fontface

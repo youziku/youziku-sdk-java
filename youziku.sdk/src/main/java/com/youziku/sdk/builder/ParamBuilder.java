@@ -27,7 +27,7 @@ public class ParamBuilder {
 		sb.append("&AccessKey=");
 		sb.append(fontFace.getAccessKey());
 		sb.append("&Content=");
-		sb.append(fontFace.getContent().replaceAll("&", ""));
+		sb.append(fontFace.getContent());
 		sb.append("&Tag=");
 		sb.append(fontFace.getTag());
 		return sb.toString();
@@ -46,7 +46,7 @@ public class ParamBuilder {
 		for(int i=0;i<batchFontFace.getTags().size();i++){
 			FontFaceParam fontFace = batchFontFace.getTags().get(i);
 			sb.append("&Tags[").append(i).append("][AccessKey]=").append(fontFace.getAccessKey());
-			sb.append("&Tags[").append(i).append("][Content]=").append(fontFace.getContent().replaceAll("&", ""));
+			sb.append("&Tags[").append(i).append("][Content]=").append(fontFace.getContent());
 			sb.append("&Tags[").append(i).append("][Tag]=").append(fontFace.getTag());
 		}
 		return sb.toString();
@@ -65,7 +65,7 @@ public class ParamBuilder {
 		for(int i=0;i<param.getDatas().size();i++){
 			CustomPathFontFaceParam customPathFontFace = param.getDatas().get(i);
 			sb.append("&Datas[").append(i).append("][AccessKey]=").append(customPathFontFace.getAccessKey());
-			sb.append("&Datas[").append(i).append("][Content]=").append(customPathFontFace.getContent().replaceAll("&", ""));
+			sb.append("&Datas[").append(i).append("][Content]=").append(customPathFontFace.getContent());
 			sb.append("&Datas[").append(i).append("][url]=").append(customPathFontFace.getUrl());
 		}
 		return sb.toString();

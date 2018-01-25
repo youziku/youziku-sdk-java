@@ -34,93 +34,9 @@ SDK的返回值主要内容是@font-face语句，@font-face语句是CSS3中的�
 ```java 
 public static final IYouzikuServiceClient youzikuClent = new YouzikuServiceClient("xxxxxx");//xxxxxx为用户的apikey
 ```
-## 2.单标签模式
-### 2.1 getFontface()
-#### 备注:直接返回所有格式的@fontface
-同步调用
-``` java
-FontFaceResult result = youzikuClent.getFontFace(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"));//xxx为字体的accesskey
-```
-异步调用
-``` java
-youzikuClent.getFontFaceAsync(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1") , new FontFaceCallBack<FontFaceResult>() {
-	public void callBack(FontFaceResult t) {
-		System.out.println(JSON.toJSONString(t));
-	}
-});
-```
-### 2.2 getWoffBase64StringFontFace()
-#### 备注：直接返回流（woff流）的@fontface
-同步调用
-``` java
-FontFaceResult result = youzikuClent.getWoffBase64StringFontFace(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"));
-```
-异步调用
-``` java
-youzikuClent.getWoffBase64StringFontFaceAsync(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"), new FontFaceCallBack<FontFaceResult>() {
-	public void callBack(FontFaceResult t) {
-		System.out.println(JSON.toJSONString(t));
-	}
-});
-```
-## 3.多标签生成模式
-### 1.getBatchFontFace()
-#### 备注：直接返回所有格式的@fontface;可传递多个标签和内容一次生成多个@fontface
-同步调用
-``` java
-//构建一个请求参数
-BatchFontFaceParam bff = new BatchFontFaceParam();
-bff.addTag(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"));
-bff.addTag(new FontFaceParam("xxx", "有字库，让前端掌控字体！", "#id2"));
-//调用接口
-BatchFontFaceResult result = youzikuClent.getBatchFontFace(bff);
-```
-异步调用
-``` java
-//构建一个请求参数
-BatchFontFaceParam bff = new BatchFontFaceParam();
-bff.addTag(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"));
-bff.addTag(new FontFaceParam("xxx", "有字库，让前端掌控字体！", "#id2"));
-//调用接口
-youzikuClent.getBatchFontFaceAsync(bff, new FontFaceCallBack<BatchFontFaceResult>() {			
-	public void callBack(BatchFontFaceResult t) {
-		int index = 0;
-		for(ResponseItemResult rir:t.getFontfaceList()){
-			System.out.println("FontFace["+index+"]"+JSON.toJSONString(rir));
-		}
-	}
-});
-```
-### 2.getBatchWoffFontFace ()
-#### 备注：直接返回仅woff格式的@fontface
-同步调用
-``` java
-//构建一个请求参数
-BatchFontFaceParam bff = new BatchFontFaceParam();
-bff.addTag(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"));
-bff.addTag(new FontFaceParam("xxx", "有字库，让前端掌控字体！", "#id2"));
-//调用接口
-BatchFontFaceResult result = youzikuClent.getBatchWoffFontFace(bff);
-```
-异步调用
-``` java
-//构建一个请求参数
-BatchFontFaceParam bff = new BatchFontFaceParam();
-bff.addTag(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"));
-bff.addTag(new FontFaceParam("xxx", "有字库，让前端掌控字体！", "#id2"));
-//调用接口
-youzikuClent.getBatchWoffFontFaceAsync(bff, new FontFaceCallBack<BatchFontFaceResult>() {
-	public void callBack(BatchFontFaceResult t) {
-		int index = 0;
-		for(ResponseItemResult rir:t.getFontfaceList()){
-			System.out.println("FontFace["+index+"]"+JSON.toJSONString(rir));
-		}
-	}
-});
-```
-## 4.自定义路径生成模式
-### 1.CreateBatchWoffWebFontAsync()
-#### 备注：自定义路径接口可以被程序异步调用，程序调用后可以直接向下执行，不需要等待返回值
+## 2.调用接口(接口分为5种模式，用户可任选一种)
+### 2.1.敏捷模式-多标签woff接口：CreateBatchWoffWebFontAsync()
+#### 备注：敏捷模式接口可以被程序异步调用，程序调用后可以直接向下执行，不需要等待返回值
 #### &emsp;&emsp;&emsp;当需要显示字体效果时，可以根据自己所定义的路径<a href="http://service.youziku.com/index.html#format" target="_blank" style="color: #ff7e00;">拼组出@font-face语句</a>，然后将语句输出到前端页面，即可使内容显示字体效果。
 同步调用
 ``` java
@@ -149,3 +65,88 @@ youzikuClent.getCustomPathBatchWoffWebFontAsync(bcpwff2,new FontFaceCallBack<Bat
 });
 
 ```
+
+### 2.2 语句绑定模式-单标签接口：GetFontface()
+#### 备注:直接返回所有格式的@fontface
+同步调用
+``` java
+FontFaceResult result = youzikuClent.getFontFace(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"));//xxx为字体的accesskey
+```
+异步调用
+``` java
+youzikuClent.getFontFaceAsync(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1") , new FontFaceCallBack<FontFaceResult>() {
+	public void callBack(FontFaceResult t) {
+		System.out.println(JSON.toJSONString(t));
+	}
+});
+```
+### 2.3 语句绑定模式-单标签Base64接口：GetWoffBase64StringFontFace()
+#### 备注：直接返回Base64流（woff流）的@fontface
+同步调用
+``` java
+FontFaceResult result = youzikuClent.getWoffBase64StringFontFace(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"));
+```
+异步调用
+``` java
+youzikuClent.getWoffBase64StringFontFaceAsync(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"), new FontFaceCallBack<FontFaceResult>() {
+	public void callBack(FontFaceResult t) {
+		System.out.println(JSON.toJSONString(t));
+	}
+});
+```
+
+### 2.4 语句绑定模式-多标签接口：GetBatchFontFace()
+#### 备注：直接返回所有格式的@fontface;可传递多个标签和内容一次生成多个@fontface
+同步调用
+``` java
+//构建一个请求参数
+BatchFontFaceParam bff = new BatchFontFaceParam();
+bff.addTag(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"));
+bff.addTag(new FontFaceParam("xxx", "有字库，让前端掌控字体！", "#id2"));
+//调用接口
+BatchFontFaceResult result = youzikuClent.getBatchFontFace(bff);
+```
+异步调用
+``` java
+//构建一个请求参数
+BatchFontFaceParam bff = new BatchFontFaceParam();
+bff.addTag(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"));
+bff.addTag(new FontFaceParam("xxx", "有字库，让前端掌控字体！", "#id2"));
+//调用接口
+youzikuClent.getBatchFontFaceAsync(bff, new FontFaceCallBack<BatchFontFaceResult>() {			
+	public void callBack(BatchFontFaceResult t) {
+		int index = 0;
+		for(ResponseItemResult rir:t.getFontfaceList()){
+			System.out.println("FontFace["+index+"]"+JSON.toJSONString(rir));
+		}
+	}
+});
+```
+### 2.5 语句绑定模式-多标签woff格式接口：GetBatchWoffFontFace ()
+#### 备注：直接返回仅woff格式的@fontface
+同步调用
+``` java
+//构建一个请求参数
+BatchFontFaceParam bff = new BatchFontFaceParam();
+bff.addTag(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"));
+bff.addTag(new FontFaceParam("xxx", "有字库，让前端掌控字体！", "#id2"));
+//调用接口
+BatchFontFaceResult result = youzikuClent.getBatchWoffFontFace(bff);
+```
+异步调用
+``` java
+//构建一个请求参数
+BatchFontFaceParam bff = new BatchFontFaceParam();
+bff.addTag(new FontFaceParam("xxx", "有字库，让中文跃上云端！", "#id1"));
+bff.addTag(new FontFaceParam("xxx", "有字库，让前端掌控字体！", "#id2"));
+//调用接口
+youzikuClent.getBatchWoffFontFaceAsync(bff, new FontFaceCallBack<BatchFontFaceResult>() {
+	public void callBack(BatchFontFaceResult t) {
+		int index = 0;
+		for(ResponseItemResult rir:t.getFontfaceList()){
+			System.out.println("FontFace["+index+"]"+JSON.toJSONString(rir));
+		}
+	}
+});
+```
+

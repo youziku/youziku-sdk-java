@@ -18,7 +18,7 @@ SDK mainly returns the @font-face, which is well supported by all kinds of brows
 　　　commons-codec-1.2<br />
 　　　fastjson-1.2.5<br />
 
-3.<a href="https://github.com/youziku/youziku-sdk-java/raw/master/sdk下载/sdk.jars.zip">sdk download</a><br />
+3.<a href="https://github.com/youziku/youziku-sdk-java/raw/master/sdk%E4%B8%8B%E8%BD%BD/youziku.java.sdk.jars.zip">sdk download</a><br />
 
 # 3. Usage
 `import com.youziku.sdk.*;`

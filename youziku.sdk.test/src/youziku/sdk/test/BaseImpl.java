@@ -5,5 +5,5 @@ import com.youziku.sdk.client.YouzikuServiceClient;
 
 public class BaseImpl {
 
-	protected  static final IYouzikuServiceClient YouzikuClient = new YouzikuServiceClient("xxx");
+	protected  static final IYouzikuServiceClient YouzikuClient = new YouzikuServiceClient("xxx",true);
 }

@@ -16,7 +16,7 @@ public class Test {
 
 		for (int i = 0; i < 10; i++) {
 
-			IInterfaceTest test = new CustomPathTestImpl();
+			IInterfaceTest test = new SingleTestImpl();
 			test.Run(i);
 		}
 

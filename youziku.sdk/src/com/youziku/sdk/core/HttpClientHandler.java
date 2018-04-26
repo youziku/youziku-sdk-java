@@ -9,6 +9,7 @@ import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.apache.commons.httpclient.params.HttpMethodParams;
+import org.apache.commons.httpclient.protocol.Protocol;
 
 /**
  * 使用commons-httpclient3.0.1开发包
@@ -19,9 +20,16 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 public class HttpClientHandler implements HttpProtocolHandler {
 	
 	private HttpClient client = new HttpClient();
+	
+	private static final   String HTTPS="https";
 	public String request(String url, String entity, int timeOut) {
 		try {
-
+			  if(url.startsWith(HTTPS)){  
+                  //https请求  
+                  Protocol myhttps = new Protocol(HTTPS, new YouzikuSSLProcotol(), 443);     
+                  Protocol.registerProtocol(HTTPS, myhttps);  
+                  //System.out.println("https");
+              } 
 			client.getHttpConnectionManager().getParams()
 					.setConnectionTimeout(timeOut);
 			client.getHttpConnectionManager().getParams().setSoTimeout(timeOut);

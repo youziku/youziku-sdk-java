@@ -1,9 +1,0 @@
-com.youziku.sdk.builder
-com.youziku.sdk.client
-com.youziku.sdk.common
-com.youziku.sdk.config
-com.youziku.sdk.core
-com.youziku.sdk.param.batch
-com.youziku.sdk.param
-com.youziku.sdk.result
-com.youziku.sdk.validate

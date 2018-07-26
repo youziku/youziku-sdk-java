@@ -11,6 +11,7 @@ This SDK is for invoking all the API from <a href="http://service.youziku.com">s
 SDK mainly returns the @font-face, which is well supported by all kinds of browsers for applying fonts on DOM.<br/>
 
 # 2. Environment
+1) jar<br/><br/>
 1.jdk 1.6.0_31 or above <br />
 2.Dependencies: <br />
 　　　commons-httpclient-3.0.1<br />
@@ -20,6 +21,14 @@ SDK mainly returns the @font-face, which is well supported by all kinds of brows
 
 3.<a href="https://github.com/youziku/youziku-sdk-java/raw/master/sdk下载/sdk.jars.zip">sdk download</a><br />
 
+2)manve 
+``` xml
+    <dependency>
+	<groupId>com.github.youziku</groupId>
+	<artifactId>youziku.service.sdk</artifactId>
+	<version>1.0</version>
+    </dependency>
+```
 # 3. Usage
 `import com.youziku.sdk.*;`
 

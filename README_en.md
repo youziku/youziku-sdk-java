@@ -21,7 +21,7 @@ SDK mainly returns the @font-face, which is well supported by all kinds of brows
 
 3.<a href="https://github.com/youziku/youziku-sdk-java/raw/master/sdk下载/sdk.jars.zip">sdk download</a><br />
 
-2)manve 
+2)maven 
 ``` xml
     <dependency>
 	<groupId>com.github.youziku</groupId>

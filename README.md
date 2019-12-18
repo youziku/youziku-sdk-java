@@ -43,7 +43,8 @@ SDK的返回值主要内容是@font-face语句，@font-face语句是CSS3中的�
 }
 ```
 ## 4. 显示字体效果
-用户<a href="#user-content-4自定义路径生成模式">自定义字体存放路径</a>，当需要显示字体效果时，可以根据自己所定义的路径<a href="http://service.youziku.com/index.html#format" target="_blank" style="color: #ff7e00;">拼组出@font-face语句</a>，然后将语句输出到前端页面，即可使内容显示字体效果。
+敏捷模式：用户<a href="#user-content-4自定义路径生成模式">自定义字体存放路径</a>，当需要显示字体效果时，可以根据自己所定义的路径<a href="http://service.youziku.com/index.html#format" target="_blank" style="color: #ff7e00;">拼组出@font-face语句</a>，然后将语句输出到前端页面，即可使内容显示字体效果。<br />
+非敏捷模式：用户在提交内容到SDK时，需要等待SDK返回的结果（@font-face语句），并随内容对应保存到数据库中，当需要显示字体效果时，调取与内容相对应的@font-face语句，然后将语句输出到前端页面，即可使内容显示字体效果。
 
 # 二、环境
 1)jar包方式引用<br/><br/>
